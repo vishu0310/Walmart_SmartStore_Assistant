@@ -17,7 +17,9 @@ const ProductSchema = new mongoose.Schema({
   barcode: String,
   imageUrl: String,
   tags: [String],
-  isHealthy: Boolean
+  isHealthy: Boolean,
+  x: { type: Number, required: true },
+  z: { type: Number, required: true }
 });
 
 module.exports = mongoose.model('Product', ProductSchema); 

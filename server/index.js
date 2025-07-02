@@ -6,6 +6,14 @@ const Product = require('./models/Product');
 const Offer = require('./models/Offer');
 const Cart = require('./models/Cart');
 const User = require('./models/User');
+const fetch = require('node-fetch');
+
+const { OpenAI } = require('openai');
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+const VAPI_API_KEY = process.env.VAPI_API_KEY;
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -150,6 +158,63 @@ app.get('/recommendations/:userId', async (req, res) => {
     });
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch recommendations', details: err.message });
+  }
+});
+
+// Chatbot route using OpenAI + store product data
+app.post('/api/chat', async (req, res) => {
+  const { message } = req.body;
+
+  try {
+    // Try to find a matching product in your DB
+    const allProducts = await Product.find();
+    const lowerMsg = message.toLowerCase();
+    const matchedProduct = allProducts.find(p =>
+      lowerMsg.includes(p.name.toLowerCase())
+    );
+
+    // Build extra context if product found
+    let storeInfo = "No specific product found in store.";
+    if (matchedProduct) {
+      storeInfo = `Product info: ${matchedProduct.name} is in ${matchedProduct.aisle || "an aisle not specified"} and its stock status is ${matchedProduct.stock > 0 ? matchedProduct.stock : "Out of stock"}.`;
+    }
+
+    // Call OpenAI with user question + store info
+    const completion = await openai.chat.completions.create({
+      model: "gpt-4o",
+      messages: [
+        { role: "system", content: "You are a helpful Walmart store assistant. Answer clearly and politely. Use product/store info if available." },
+        { role: "user", content: `${message}\n\n${storeInfo}` }
+      ]
+    });
+
+    res.json({ reply: completion.choices[0].message.content });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Failed to process chatbot request' });
+  }
+});
+
+app.post('/api/vapi-chat', async (req, res) => {
+  try {
+    const { messages, assistantId } = req.body;
+    // Convert messages to Vapi's expected format
+    const vapiMessages = messages.map(m => ({
+      role: m.sender === "user" ? "user" : "assistant",
+      content: m.text,
+    }));
+    const vapiRes = await fetch('https://api.vapi.ai/chat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${VAPI_API_KEY}`,
+      },
+      body: JSON.stringify({ messages: vapiMessages, assistantId }),
+    });
+    const data = await vapiRes.json();
+    res.status(vapiRes.status).json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Proxy error', details: err.message });
   }
 });
 

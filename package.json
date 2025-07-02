@@ -6,5 +6,10 @@
   },
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "@vapi-ai/web": "^2.3.7",
+    "aframe": "^1.7.1",
+    "ar.js": "^2.2.2"
   }
-} 
+}
