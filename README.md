@@ -3,6 +3,7 @@
 Welcome to the **Walmart SmartStore Assistant**, an innovative, AI-powered, AR-integrated digital shopping assistant designed to **enhance in-store customer experiences** through **voice commands, AR navigation, smart recommendations**, and **live support**.
 
 > 🚀 Built for Hackathons | 🧠 AI + AR Integration | 🛍️ Customer Delight Focus
+![image](https://github.com/user-attachments/assets/8463b96d-c3fd-4b37-9732-6d10dbefa5b6)
 
 ---
 
@@ -11,16 +12,19 @@ Welcome to the **Walmart SmartStore Assistant**, an innovative, AI-powered, AR-i
 ### 🗺️ AR Navigation
 - Navigate through aisles using Augmented Reality markers and real-world overlays
 - Find products faster using visual shelf maps and path guides
+![Screenshot 2025-07-04 224347](https://github.com/user-attachments/assets/fab8abb0-dd51-4158-bd37-886fed209251)
 
 ### 🎙️ Voice-Powered AI Assistant
 - Natural language support via ChatGPT/Dialogflow
 - Voice queries like: _“Where is almond milk?”_, _“Show today’s offers”_
+![Screenshot 2025-07-04 224317](https://github.com/user-attachments/assets/eb934436-a0b6-4254-98a7-85c8cccfcbd7)
 
 ### 🧠 Smart Product Recommendations
 - ML-powered suggestion engine based on:
   - Purchase history
   - Cart items
   - Ongoing offers
+![Screenshot 2025-07-04 224412](https://github.com/user-attachments/assets/7f5f479e-3fb4-4b1f-88cd-01e723a65ec0)
 
 ### 🛒 Smart Cart Sync
 - Add/remove items via voice or touch
