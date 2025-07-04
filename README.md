@@ -3,7 +3,8 @@
 Welcome to the **Walmart SmartStore Assistant**, an innovative, AI-powered, AR-integrated digital shopping assistant designed to **enhance in-store customer experiences** through **voice commands, AR navigation, smart recommendations**, and **live support**.
 
 > 🚀 Built for Hackathons | 🧠 AI + AR Integration | 🛍️ Customer Delight Focus
-![image](https://github.com/user-attachments/assets/8463b96d-c3fd-4b37-9732-6d10dbefa5b6)
+![Screenshot 2025-07-04 224305](https://github.com/user-attachments/assets/b2660e13-88c7-43c6-8159-5b7c3ae2fd37)
+
 
 ---
 
