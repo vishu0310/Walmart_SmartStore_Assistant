@@ -77,4 +77,47 @@ Walmart_SmartStore_Assistant/
 ---
 
 
+## 🚀 How to Run the Project Locally
+
+### 🧩 Prerequisites
+- Node.js & npm
+- Firebase CLI (if using Firebase)
+- Python (for ML component, optional)
+- Git
+
+---
+
+### 🛠️ Steps to Run
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/vishu0310/Walmart_SmartStore_Assistant.git
+cd Walmart_SmartStore_Assistant
+
+# 2. Install frontend dependencies
+cd client
+npm install
+
+# 3. Run the frontend
+npm run dev
+
+
+Visit http://localhost:3000 to explore the app!
+
+⚙️ Configure your Firebase/ML keys in .env files for full functionality.
+
+✍️ Author
+Vishu Patle
+GitHub | LinkedIn
+
+🤝 Contributions
+Contributions are welcome! 🎉
+Please open an issue first to discuss your ideas, or submit a pull request.
+
+📬 Suggestions?
+Feel free to open an issue.
+
+📃 License
+Licensed under the MIT License.
+
 
